@@ -14,6 +14,5 @@ export default function RequireAuth({ children }: Porps) {
         return <Navigate to='/login' state={{ from: location  }} replace />
     };
 
-
     return children;
 };

@@ -1,13 +1,13 @@
 import { createContext } from 'react';
+import { AuthDateParams } from '../providers/AuthProvider';
 
-interface InitialState {
+interface AuthContextType {
     isLogged: boolean
-}
-
-const initialState: InitialState = {
-    isLogged: false
+    authDate: AuthDateParams,
+    signIn: (user: AuthDateParams) => void;
+    signOut: () => void;
 };
 
-const AuthContext = createContext(initialState);
+const AuthContext = createContext<AuthContextType>(null!);
 
 export default AuthContext;

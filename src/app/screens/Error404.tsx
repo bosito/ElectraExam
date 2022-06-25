@@ -5,16 +5,19 @@ export default function Eror404() {
     return (
         <div className='container text-center' >
 
-            <Lottie
-                height={300}
-                width={300}
-                options={{
-                    animationData: animation,
-                    loop: true
-                }}
-            />
+            <div>
+                <Lottie
+                    height={300}
+                    width={300}
+                    options={{
+                        animationData: animation,
+                        loop: true
+                    }}
+                />
+            </div>
 
-            <h2>ruta no encontrada</h2>
+
+            <h2>Ruta no encontrada</h2>
         </div>
 
     )

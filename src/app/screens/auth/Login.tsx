@@ -1,12 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Spinner } from 'react-bootstrap';
 import { useNavigate, useLocation, Navigate, } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { AuthDateParams } from '../../providers/AuthProvider';
 
-/**
- * funcion que simula una peticion a un api tardando un segundo
- */
 const fakeFech = (user: AuthDateParams) => {
     return new Promise<{ data: AuthDateParams }>((resolve) =>
         setTimeout(() => resolve({ data: user }), 1000)

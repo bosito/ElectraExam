@@ -1,36 +1,33 @@
-import React from 'react';
 import { Routes, Route } from "react-router-dom";
+import Error404 from './screens/Error404';
+import Home from './screens/auth/Home';
+import Login from './screens/auth/Login';
+import Employees from './screens/employees/Employees';
+import Upload from './screens/uploadFiles/Upload';
+import RequireAuth from './screens/RequireAuth';
 
 export default function Navigation() {
     return (
         <Routes>
-            <Route path="/" element={<Test1 />}  />
-            <Route path="about" element={<Test />} />
-            <Route path='*' element={<Error404/>} />
+            <Route path="/" element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route
+                path='/employees'
+                element={
+                    <RequireAuth>
+                        <Employees />
+                    </RequireAuth>
+                }
+            />
+            <Route
+                path='/upload'
+                element={
+                    <RequireAuth>
+                        <Upload />
+                    </RequireAuth>
+                }
+            />
+            <Route path='*' element={<Error404 />} />
         </Routes>
     );
 };
-
-function Test() {
-    return (
-        <div>
-            <h1>wolas que hay</h1>
-        </div>
-    )
-}
-
-function Test1() {
-    return (
-        <div>
-            <h3>wolas como estas</h3>
-        </div>
-    )
-}
-
-function Error404() {
-    return(
-        <div>
-            <h1>RUTA NO ENCONTRADA</h1>
-        </div>
-    )
-}

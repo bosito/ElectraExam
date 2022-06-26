@@ -50,21 +50,20 @@ export default function Employees() {
             };
 
             //en ocaciones esto ya esta validado por el api esto solo fue una prueba
-            const dateJson = JSON.stringify(data);
+            //const dateJson = JSON.stringify(data);
 
-            const response = await axios.post(`https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen${authDate.nombre}`, dateJson);
+            const response = await axios.post(`https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/${authDate.nombre}`, data);
 
-            /*
-                si el pooost es correcto hacer la accion de getEmpleados
-                como no se por que me falla el post, no se si estoy mandando algo mal
-                if(response.data){
-                    dispatch(getEmpleados(authDate.nombre));
-                    setNombre('');
-                    setApellido('');
-                    setCumple('');
-                    setOpenModal(false)
-                };
-            */
+            console.log('response -->', response)
+
+            if (response.data) {
+                dispatch(getEmpleados(authDate.nombre));
+                setNombre('');
+                setApellido('');
+                setCumple('');
+                setOpenModal(false)
+            };
+
 
 
         } catch (error) {

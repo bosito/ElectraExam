@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Table, Form, Pagination, Spinner, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Lottie from 'lottie-react-web';
@@ -36,8 +36,8 @@ export default function Home() {
             </div>
 
             <Lottie
-                height={400}
-                width={400}
+                height={450}
+                width={450}
                 options={{
                     animationData: animation,
                     loop: false

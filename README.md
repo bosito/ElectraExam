@@ -48,3 +48,15 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Login pasword
 
 Para hacer lun login exitoso la contraseña es 12345678 el usuario es requerido pero es con cualquier nombre de usuario
+
+## Noma Rutes
+
+en nombre de las rutas estan escritas en minusculas.
+
+/
+
+/login
+
+/employees
+
+/upload

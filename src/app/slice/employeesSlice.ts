@@ -32,9 +32,9 @@ export const employessSlice = createSlice({
             const listaAll = state.employess_list;
 
             const listafilter = listaAll.filter((empleado) => {
-                return empleado.name.toLowerCase().indexOf(acction.payload) !== 1
-                || empleado.last_name.toLowerCase().indexOf(acction.payload) !== 1
-                || empleado.id.toString().indexOf(acction.payload) !== -1
+                return empleado.name.toLowerCase().indexOf(acction.payload) !== -1
+                    || empleado.last_name.toLowerCase().indexOf(acction.payload) !== -1
+                    || empleado.id.toString().indexOf(acction.payload) !== -1
             });
 
             state.employess_filter_list = listafilter;

@@ -22,7 +22,12 @@ code {
 }
 
 .center-flex{
-  /* display: flex; */
   justify-content: center;
   align-items: center;
+}
+
+.card_login{
+  padding: 20px;
+  border-radius: 25px;
+  background-color: rgb(11, 178, 255);
 }

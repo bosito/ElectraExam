@@ -1,11 +1,14 @@
-import { startLoading, closeLoading, setAddEmpleados } from './employeesSlice';
+import { startLoading, setAddEmpleados } from './employeesSlice';
+import axios from 'axios';
 
-export const getEmpleados = () => {
-    return async (dispatch: (colbak: any) => {}, getState: any) => {
+export const getEmpleados = (userName: string) => {
+    return async (dispatch: (colbak: any) => {}) => {
         dispatch(startLoading());
 
-        //dispatch(setAddEmpleados());
-        dispatch(closeLoading());
-        
+        const response = await axios.get(`https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/${userName}`);
+
+        if(response.data){
+            dispatch(setAddEmpleados(response.data.data.employees));
+        };
     }
 }

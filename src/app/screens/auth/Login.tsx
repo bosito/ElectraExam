@@ -8,8 +8,7 @@ const fakeFech = (user: AuthDateParams) => {
     return new Promise<{ data: AuthDateParams }>((resolve) =>
         setTimeout(() => resolve({ data: user }), 1000)
     );
-}
-
+};
 
 export default function Login() {
     const { signIn, isLogged } = useAuth();
@@ -17,7 +16,7 @@ export default function Login() {
     const location = useLocation();
 
     const [userName, setUserName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [password, setPassword] = useState<string>('12345678');
     const [loading, setLoading] = useState(false);
 
     if (isLogged) {
@@ -56,14 +55,16 @@ export default function Login() {
     return (
         <div className='container d-flex full  center-flex' >
 
-            <div className='d-inline-flex' >
+            <div className='d-inline-flex card_login ' >
                 <Form onSubmit={handleSubmit} >
                     <Form.Group className="mb-3" controlId="nombre">
                         <Form.Label>Nombre</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="nombre"
+                            required={true}
                             value={userName}
+                            maxLength={30}
                             onChange={(event) => setUserName(event.currentTarget.value)}
                             onCopy={(e)=>{e.preventDefault()}}
                             onPaste={(e)=>{e.preventDefault()}}
@@ -74,6 +75,8 @@ export default function Login() {
                         <Form.Control
                             type="password"
                             placeholder="Contraseña"
+                            required={true}
+                            maxLength={30}
                             value={password}
                             onChange={(event) => setPassword(event.currentTarget.value)}
                             onCopy={(e)=>{e.preventDefault()}}

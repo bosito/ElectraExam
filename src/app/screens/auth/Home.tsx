@@ -6,12 +6,12 @@ import Lottie from 'lottie-react-web';
 import animation from '../../../assets/lottie/9757-welcome.json';
 
 export default function Home() {
-    const { isLogged, signIn, signOut } = useAuth();
+    const { isLogged, signOut } = useAuth();
     return (
         <div className='container text-center' >
             <div className='d-flex flex-row mb-2 justify-content-between mt-3' >
                 <h1>Home</h1>
-                
+
                 {
                     isLogged ?
                         <div className='flex-row mb-2' >

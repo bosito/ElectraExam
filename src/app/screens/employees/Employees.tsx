@@ -37,24 +37,13 @@ export default function Employees() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         try {
             event.preventDefault();
-            // const data = {
-            //     name: 'Jose Luis',
-            //     last_name: 'jimenez Vazquez',
-            //     birthday: new Date()
-            // };
-
             const data = {
                 name: nombre,
                 last_name: apellido,
                 birthday: cumple
             };
 
-            //en ocaciones esto ya esta validado por el api esto solo fue una prueba
-            //const dateJson = JSON.stringify(data);
-
             const response = await axios.post(`https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/${authDate.nombre}`, data);
-
-            console.log('response -->', response)
 
             if (response.data) {
                 dispatch(getEmpleados(authDate.nombre));

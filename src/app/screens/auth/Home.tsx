@@ -1,49 +1,44 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Lottie from 'lottie-react-web';
 import animation from '../../../assets/lottie/9757-welcome.json';
+import Navbar from '../../components/Navbar';
+import './home.css';
 
 export default function Home() {
     const { isLogged, signOut } = useAuth();
+    const [pause, setPause] = useState<boolean>(false);
+
+    useEffect(() => {
+
+        const timeout = setTimeout(() => {
+            setPause(true);
+        }, 5000);
+
+        return () => clearTimeout(timeout);
+
+    }, []);
+
     return (
-        <div className='container text-center' >
-            <div className='d-flex flex-row mb-2 justify-content-between mt-3' >
-                <h1>Home</h1>
+        <div>
+            <Navbar title='Home' />
+            <div className='container text-center' >
+                <div className='shadow-card card mt-5' >
+                    <Lottie
+                        style={{ cursor: 'default' }}
+                        height={350}
+                        width={450}
+                        isPaused={pause}
+                        options={{
+                            animationData: animation,
+                            loop: true
+                        }}
+                    />
+                </div>
 
-                {
-                    isLogged ?
-                        <div className='flex-row mb-2' >
-                            <Button onClick={signOut} >
-                                Cerra sesión
-                            </Button>
-                            <Link to='/employees' >
-                                <Button className='ms-1' >
-                                    Empleados
-                                </Button>
-                            </Link>
-                        </div>
 
-                        :
-                        <Link to='/login' >
-                            <Button >
-                                login
-                            </Button>
-                        </Link>
-
-                }
             </div>
-
-            <Lottie
-                height={450}
-                width={450}
-                options={{
-                    animationData: animation,
-                    loop: false
-                }}
-            />
-
         </div>
-    )
-}
+
+    );
+};

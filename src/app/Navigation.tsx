@@ -3,7 +3,7 @@ import Error404 from './screens/Error404';
 import Home from './screens/auth/Home';
 import Login from './screens/auth/Login';
 import Employees from './screens/employees/Employees';
-import Upload from './screens/uploadFiles/Upload';
+import CalendarPage from './screens/calendar/CalendarPage';
 import RequireAuth from './screens/RequireAuth';
 import Layaut from './screens/Layaut';
 
@@ -22,10 +22,10 @@ export default function Navigation() {
                     }
                 />
                 <Route
-                    path='upload'
+                    path='calendar'
                     element={
                         <RequireAuth>
-                            <Upload />
+                            <CalendarPage />
                         </RequireAuth>
                     }
                 />

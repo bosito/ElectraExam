@@ -16,9 +16,11 @@ export default function Employees() {
 
     const isLoading = useAppSelector((state) => state.employees.isLoading);
     const employessFilterList = useAppSelector((state) => state.employees.employess_filter_list);
-    //const employessList = useAppSelector((state) => state.employees.employess_list);
 
-    //stado del modal lo are con useState a falta de tiempo lo correcto es hacerlo con redux ya implentado
+    /*
+    stado del modal lo are con useState a falta de tiempo lo 
+    correcto es hacerlo con redux ya implentado.
+    */
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [cumple, setCumple] = useState('');
@@ -50,10 +52,8 @@ export default function Employees() {
                 setNombre('');
                 setApellido('');
                 setCumple('');
-                setOpenModal(false)
+                setOpenModal(false);
             };
-
-
 
         } catch (error) {
             console.log(error);

@@ -1,19 +1,23 @@
 import React from 'react';
-import { Calendar, EventProps } from 'react-big-calendar';
+import { EventProps } from 'react-big-calendar';
+import { ResourceInterface } from '../settings/calendarPage';
 
-interface Props extends EventProps {
+interface Props extends EventProps { };
 
-}
-
-export default function CalendarEvent(props:Props) {
+export default function CalendarEvent(props: Props) {
     const { event } = props;
-    const { title } = event;
-    console.log(props)
-  return (
-    <div>
-        <strong>
-            {title}
-        </strong>
-    </div>
-  )
+    const { title, resource } = event;
+    const { notes }: ResourceInterface = resource;
+
+    return (
+        <div>
+            <strong>
+                {title}
+            </strong>
+
+            <span>
+                {notes}
+            </span>
+        </div>
+    )
 }

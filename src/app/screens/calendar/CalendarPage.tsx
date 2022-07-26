@@ -81,6 +81,9 @@ interface PropsModal {
 
 function ModalComponent(props: PropsModal) {
   const { show, onHide } = props;
+  const [values, setvalues] = useState({
+    
+  });
 
   const handleSubmit = () => {
 
